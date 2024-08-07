@@ -79,7 +79,6 @@
       display: block; /* Ensure the element displays as a block element */
       font-size: 2em; /* Set the default font size for h1 elements */
       font-weight: bold; /* Set the default font weight for h1 elements */
-      font-family: "Times New Roman";
       margin: 0.67em 0; /* Set the default margin for h1 elements */
       line-height: 1.2; /* Set the default line height for h1 elements */
       padding: 0; /* Reset padding */
@@ -91,14 +90,14 @@
     }
 
     @keyframes fadeInOut {
-      0%, 75% {
+      0%, 10% {
         color: transparent; /* Invisible for the first 2 seconds */
       }
       85% {
-        color: rgba(192, 228, 255, 0.7); /* Semi-transparent during the last 2 seconds */
+        color: rgba(255, 255, 255, 0.7); /* Semi-transparent during the last 2 seconds */
       }
       100% {
-        color: rgba(192, 228, 255, 0.7); /* Continue visible until the end */
+        color: rgba(255, 255, 255, 0.7); /* Continue visible until the end */
       }
     }
 
@@ -167,25 +166,33 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                  <a href="./static/videos/Diff-Control.pdf" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
                   </a>
                 </span>
-                <!-- Video Link. -->
                 <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+                <!-- Video Link. -->
+                <span class="link-block">
                   <a href="./static/videos/task_sequence.mp4" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-youtube"></i>
                     </span>
                     <span>Video</span>
                   </a>
-                </span> -->
+                </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href=""
+                  <a href="https://github.com/ir-lab/Diff-Control"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -194,7 +201,7 @@
                   </a>
                 </span>
                 <!-- Dataset Link. -->
-                <!-- <span class="link-block">
+                <span class="link-block">
                   <a href="https://www.dropbox.com/scl/fo/2onj92s7gewettu1rjg3d/h?rlkey=1d4dnhwf3z6s4a51lopgocby5&dl=0"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -202,7 +209,6 @@
                     </span>
                     <span>Data</span>
                   </a>
-                </span> -->
               </div>
   
             </div>

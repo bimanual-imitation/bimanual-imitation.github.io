@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Bimanual Imitation</title> -->
+  <meta charset="utf-8">
+  <meta name="description" content="Bimanual Imitation">
+  <meta name="keywords" content="Imitation Learning, Bimanual Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bimanual Imitation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/irl_lab.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #bannerVideo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .overlay h1 {
+      color: transparent; /* Initial state of the text */
+      animation: fadeInOut 19s ease-in-out infinite; /* Apply animation */
+    }
+
+    @keyframes fadeInOut {
+      0%, 75% {
+        color: transparent; /* Invisible for the first 2 seconds */
+      }
+      85% {
+        color: rgba(255, 255, 255, 0.7); /* Semi-transparent during the last 2 seconds */
+      }
+      100% {
+        color: rgba(255, 255, 255, 0.7); /* Continue visible until the end */
+      }
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <header class="banner">
+    <video autoplay muted loop id="bannerVideo" data-src="video.mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1>A Comparison Of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var video = document.getElementById('bannerVideo');
+      var videoSrc = video.getAttribute('data-src');
+      if (videoSrc) {
+        video.src = videoSrc;
+      }
+    });
+  </script>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">A Comparison Of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.xiao-liu.me/">Xiao Liu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://yifanzhou.com/">Yifan Zhou</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://faweigend.com/">Fabian Weigend </a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.sdsonawani.com/">Shubham Sonawani</a> <sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.brain.kyutech.ac.jp/~ikemoto/people.html">Shuhei Ikemoto</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://henibenamor.weebly.com/">Heni Ben Amor</a><sup>1</sup>,
+            </span>
+            <!-- <span class="author-block">
+              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+            </span> -->
+            <!-- <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+            </span> -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup><a
+                href="https://interactive-robotics.engineering.asu.edu/">Interactive Robotics Lab, Arizona State
+                University</span></a>
+            <span class="author-block"><sup>2</sup><a href="https://www.brain.kyutech.ac.jp/~ikemoto/"> Kyushu
+                Institute of Technology</span></a>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/videos/Diff-Control.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="./static/videos/task_sequence.mp4" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ir-lab/Diff-Control"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://www.dropbox.com/scl/fo/2onj92s7gewettu1rjg3d/h?rlkey=1d4dnhwf3z6s4a51lopgocby5&dl=0"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  
+
+
+</body>
+</html>
+

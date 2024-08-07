@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Bimanual Imitation</title> -->
   <meta charset="utf-8">
-  <meta name="description" content="Bimanual Imitation">
+  <meta name="description" content="A Comparison of Imitation Learning Algorithms for Bimanual Manipulation">
   <meta name="keywords" content="Imitation Learning, Bimanual Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bimanual Imitation</title>
+  <title>A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -36,12 +39,12 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
   <style>
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: auto; /* Ensure scrolling works */
     }
 
     .banner {
@@ -53,12 +56,14 @@
 
     #bannerVideo {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Ensure the video covers the entire area */
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
       z-index: -1;
+      transform: translate(-50%, -50%);
     }
 
     .overlay {
@@ -67,47 +72,28 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
 
-    .reset-h1 {
-      all: unset; /* Unset all inherited and applied styles */
-      display: block; /* Ensure the element displays as a block element */
-      font-size: 2em; /* Set the default font size for h1 elements */
-      font-weight: bold; /* Set the default font weight for h1 elements */
-      font-family: "Times New Roman";
-      margin: 0.67em 0; /* Set the default margin for h1 elements */
-      line-height: 1.2; /* Set the default line height for h1 elements */
-      padding: 0; /* Reset padding */
-    }
-
-    .overlay h1 {
-      color: transparent; /* Initial state of the text */
-      animation: fadeInOut 19s ease-in-out infinite; /* Apply animation */
-    }
-
-    @keyframes fadeInOut {
-      0%, 75% {
-        color: transparent; /* Invisible for the first 2 seconds */
-      }
-      85% {
-        color: rgba(192, 228, 255, 0.7); /* Semi-transparent during the last 2 seconds */
-      }
-      100% {
-        color: rgba(192, 228, 255, 0.7); /* Continue visible until the end */
-      }
-    }
-
     .content {
       padding: 20px;
     }
 
+    .customh1 {
+      font-size: 2em;         /* Generally around 32px, but can vary */
+      font-weight: bold;      /* Typically bold */
+      margin: 0.67em 0;       /* Top and bottom margin */
+      padding: 0;             /* Usually no padding */
+      line-height: 1.2;       /* Line height might be around 1.2 */
+    }
+
     .section {
-      min-height: 100vh; /* Ensures it takes up at least the full viewport height */
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -122,70 +108,91 @@
       Your browser does not support the video tag.
     </video>
     <div class="overlay">
-      <h1 class="reset-h1">A Comparison Of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+      <h1 class="customh1">A Comparison Of Imitation Learning Algorithms for Bimanual Manipulation</h1>
     </div>
   </header>
+
+  <!-- <section class="content">
+    <div class="section">
+      <h2>Welcome to the next section</h2>
+      <p>This is a simple page below the video banner. You can add more content here.</p>
+    </div>
+  </section> -->
 
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">A Comparison Of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+            <h1 class="title is-1 publication-title">Diff-Control: A Stateful Diffusion-based Policy for Imitation
+              Learning</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://drolet.io/">Michael Drolet</a><sup>1</sup>,</span>
+                <a href="https://www.xiao-liu.me/">Xiao Liu</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="">Simon Stepputtis</a><sup>2</sup>,</span>
+                <a href="http://yifanzhou.com/">Yifan Zhou</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="">Siva Kailas </a><sup>2</sup>,
+                <a href="https://faweigend.com/">Fabian Weigend </a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="">Ajinkya Jain</a> <sup>3</sup>,
+                <a href="https://www.sdsonawani.com/">Shubham Sonawani</a> <sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="">Jan Peters</a><sup>4</sup>,
-              </span>
-              <span class="author-block">
-                <a href="">Stefan Schaal</a><sup>4</sup>,
+                <a href="https://www.brain.kyutech.ac.jp/~ikemoto/people.html">Shuhei Ikemoto</a><sup>2</sup>,
               </span>
               <span class="author-block">
                 <a href="http://henibenamor.weebly.com/">Heni Ben Amor</a><sup>1</sup>,
               </span>
+              <!-- <span class="author-block">
+                <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+              </span> -->
+              <!-- <span class="author-block">
+                <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              </span> -->
             </div>
-  
+
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup><a
                   href="https://interactive-robotics.engineering.asu.edu/">Interactive Robotics Lab, Arizona State
-                  University</span></a><br>
-              <span class="author-block"><sup>2</sup><a href=""> CMU Robotics Institute</span></a><br>
-              <span class="author-block"><sup>3</sup><a href=""> Intrinsic AI (An Alphabet Company)</span></a><br>
-              <span class="author-block"><sup>4</sup><a href=""> Intelligent Autonomous Systems Lab, TU Darmstadt</span></a>
+                  University</span></a>
+              <span class="author-block"><sup>2</sup><a href="https://www.brain.kyutech.ac.jp/~ikemoto/"> Kyushu
+                  Institute of Technology</span></a>
             </div>
-  
+
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                  <a href="./static/videos/Diff-Control.pdf" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
                     <span>Paper</span>
                   </a>
                 </span>
-                <!-- Video Link. -->
                 <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+                <!-- Video Link. -->
+                <span class="link-block">
                   <a href="./static/videos/task_sequence.mp4" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-youtube"></i>
                     </span>
                     <span>Video</span>
                   </a>
-                </span> -->
+                </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href=""
+                  <a href="https://github.com/ir-lab/Diff-Control"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -194,7 +201,7 @@
                   </a>
                 </span>
                 <!-- Dataset Link. -->
-                <!-- <span class="link-block">
+                <span class="link-block">
                   <a href="https://www.dropbox.com/scl/fo/2onj92s7gewettu1rjg3d/h?rlkey=1d4dnhwf3z6s4a51lopgocby5&dl=0"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -202,16 +209,15 @@
                     </span>
                     <span>Data</span>
                   </a>
-                </span> -->
               </div>
-  
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>  
-  
+
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
