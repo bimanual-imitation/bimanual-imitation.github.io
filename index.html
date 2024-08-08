@@ -156,40 +156,24 @@
     }
   </style>  
 
-  <!-- <style>
-  .container2 {
-      /* background-image: url("luke-chesser-unsplash2.jpg"); */
-      /* background-image: url("codioful-unsplash3.jpg"); */
-      background-color: rgb(245, 245, 245);
-      background-size: cover; /* Adjusts the background image to cover the container */
-      background-repeat: no-repeat; /* Prevents the image from repeating */
-      background-position: center; /* Centers the background image */
-      padding: 20px 0; /* Adds padding to the top and bottom of the container */
-      box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
-    }
-    .container2 img {
-        width: 25%;
-        margin-right: 10px;
-    }
-    .container2 img:last-child {
-        margin-right: 0; /* Remove margin from the last image */
-    }
-  </style> -->
   <style>
     .container2 {
-        background-color: rgb(245, 245, 245);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        padding: 20px 0;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
+      background-color: rgb(245, 245, 245);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 20px 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      max-width: 80%; /* Adjust as needed */
+      margin: 0 auto; /* Center the container horizontally */
+      border-radius: 10px; /* Optional: round the corners */
     }
 
     .gif-container {
-        width: 25%; /* Same width as your images */
-        margin-right: 10px;
+        width: 28%; /* Same width as your images */
+        margin-right: 2em;
         text-align: center;
     }
 
@@ -214,7 +198,7 @@
   <header class="banner">
     <div class="banner">
       <video autoplay loop muted playsinline oncontextmenu="return false;" preload="auto" id="bannerVideo">
-          <source src="video.mp4" type="video/mp4">
+          <source src="static/videos/banner.mp4" type="video/mp4">
           Your browser does not support the video tag.
       </video>
   
@@ -347,7 +331,7 @@
               <div class="hero-body">
         
                 <center>
-                  <img src="spider.png" class="interpolation-image" alt="Interpolate start reference image." width="80%" style="border: 5px solid rgb(245, 245, 245);"/>
+                  <img src="static/images/spider.png" class="interpolation-image" alt="Interpolate start reference image." width="80%" style="border: 5px solid rgb(245, 245, 245);"/>
                 </center>
         
                 <h4 class="subtitle has-text-centered" style="font-size: 1em;">
@@ -379,18 +363,18 @@
     
     <section>
       <center>
-        <div class="container-wrapper">
+        <div>
           <div class="container2">
             <div class="gif-container">
-              <img src="good_robot_demo.gif" alt="GIF 1">
+              <img src="static/gifs/good_robot_demo.gif" alt="GIF 1">
               <p class="caption" style="font-size: 1em;"><b>The Good</b></p>
             </div>
             <div class="gif-container">
-              <img src="bad_robot_demo.gif" alt="GIF 2">
+              <img src="static/gifs/bad_robot_demo.gif" alt="GIF 2">
               <p class="caption" style="font-size: 1em;"><b>The Bad</b></p>
             </div>
             <div class="gif-container">
-              <img src="ugly_robot_demo.gif" alt="GIF 3">
+              <img src="static/gifs/ugly_robot_demo.gif" alt="GIF 3">
               <p class="caption" style="font-size: 1em;"><b>The Ugly</b></p>
             </div>
           </div>
@@ -408,7 +392,7 @@
           <h2 class="title is-4" style="margin-bottom: 0px; padding-bottom: 0px;">Related Material</h2>
           <div class="content has-text-justified">
             <p>
-              <a href="https://github.com/ir-lab/bimanual-imitation">Our codebase</a> inherits many features from <a href="https://github.com/ir-lab/irl_control">IRL control</a>, which features:
+              <a href="https://github.com/ir-lab/bimanual-imitation">Our codebase</a> inherits features from <a href="https://github.com/ir-lab/irl_control">IRL control</a>, which supports:
             <ul>
               <li><strong>Low-level Controllers</strong> including Operational Space Control and Admittance Control.
               <li><strong>Demo Collection</strong> with PS Move controllers and 3D Connexion Space Mouse for teleoperation.
@@ -430,15 +414,15 @@
       <div class="container-wrapper">
         <div class="container2">
           <div class="gif-container">
-            <img src="ps_move_demo.gif" alt="GIF 1">
+            <img src="static/gifs/ps_move_demo.gif" alt="GIF 1">
             <p class="caption">Teleoperation using PS Move</p>
           </div>
           <div class="gif-container">
-            <img src="force_test.gif" alt="GIF 2">
+            <img src="static/gifs/force_test.gif" alt="GIF 2">
             <p class="caption">Force/Torque Sensor test with admittance control</p>
           </div>
           <div class="gif-container">
-            <img src="insertion_task.gif" alt="GIF 3">
+            <img src="static/gifs/insertion_task.gif" alt="GIF 3">
             <p class="caption">Single-arm adapter insertion tasks</p>
           </div>
         </div>
