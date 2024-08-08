@@ -68,10 +68,21 @@ body {
 }
 
 .publication-authors {
+  max-width: 100%;
+}
+
+.publication-unis a {
+   color: hsl(0, 0%, 29%) !important;
+   font-size: 0.98em;
+}
+
+.publication-unis a:hover {
+  text-decoration: underline;
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+  color: hsl(204, 86%, 53%) !important;
+  font-size: 0.98em;
 }
 
 .publication-authors a:hover {
@@ -83,10 +94,6 @@ body {
 }
 
 .publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
 }
 
 .publication-video {

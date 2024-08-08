@@ -8,18 +8,17 @@
   <title>Bimanual Imitation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  
+  <!-- (Remove if cloning) !! Tag for bimanual imitation !! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VE0696DKLE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
+  
+    gtag('config', 'G-VE0696DKLE');
   </script>
+  <!-- (Remove if cloning) !! Tag for bimanual imitation !! -->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -77,12 +76,13 @@
     .reset-h1 {
       all: unset; /* Unset all inherited and applied styles */
       display: block; /* Ensure the element displays as a block element */
-      font-size: 2em; /* Set the default font size for h1 elements */
+      font-size: 2.5em; /* Set the default font size for h1 elements */
       font-weight: bold; /* Set the default font weight for h1 elements */
-      font-family: "Times New Roman";
+      /* font-family: "Times New Roman"; */
       margin: 0.67em 0; /* Set the default margin for h1 elements */
       line-height: 1.2; /* Set the default line height for h1 elements */
       padding: 0; /* Reset padding */
+      user-select: none;
     }
 
     .overlay h1 {
@@ -94,11 +94,14 @@
       0%, 75% {
         color: transparent; /* Invisible for the first 2 seconds */
       }
-      85% {
+      80% {
         color: rgba(192, 228, 255, 0.7); /* Semi-transparent during the last 2 seconds */
       }
+      90% {
+        color: rgba(192, 228, 255, 1); /* Continue visible until the end */
+      }
       100% {
-        color: rgba(192, 228, 255, 0.7); /* Continue visible until the end */
+        color: rgba(192, 228, 255, 1); /* Continue visible until the end */
       }
     }
 
@@ -106,7 +109,7 @@
       padding: 20px;
     }
 
-    .section {
+    .video-section {
       min-height: 100vh; /* Ensures it takes up at least the full viewport height */
       display: flex;
       justify-content: center;
@@ -124,7 +127,7 @@
         transform: translateX(-50%);
         cursor: pointer;
         z-index: 2;
-        animation: subtleBounce 3s infinite;
+        animation: subtleBounce 2.5s infinite;
         width: 40px;
         height: 40px;
         display: flex;
@@ -169,6 +172,24 @@
     }
   </style>  
 
+  <style>
+  .container2 {
+      /* background-image: url("luke-chesser-unsplash2.jpg"); */
+      background-image: url("codioful-unsplash3.jpg");
+      background-size: cover; /* Adjusts the background image to cover the container */
+      background-repeat: no-repeat; /* Prevents the image from repeating */
+      background-position: center; /* Centers the background image */
+      padding: 20px 0; /* Adds padding to the top and bottom of the container */
+      box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+    }
+    .container2 img {
+        width: 25%;
+        margin-right: 10px; /* Adjust this value for more or less space */
+    }
+    .container2 img:last-child {
+        margin-right: 0; /* Remove margin from the last image */
+    }
+  </style>
 
 </head>
 <body>
@@ -216,15 +237,15 @@
                 <a href="">Stefan Schaal</a><sup>3</sup>,
               </span>
               <span class="author-block">
-                <a href="http://henibenamor.weebly.com/">Heni Ben Amor</a><sup>1</sup>,
+                <a href="http://henibenamor.weebly.com/">Heni Ben Amor</a><sup>1</sup>
               </span>
             </div>
   
-            <div class="is-size-5 publication-authors">
+            <div class="is-size-5 publication-unis">
               <span class="author-block"><sup>1</sup><a
                   href="https://interactive-robotics.engineering.asu.edu/">Interactive Robotics Lab, Arizona State
                   University</span></a><br>
-              <span class="author-block"><sup>2</sup><a href=""> CMU Robotics Institute</span></a><br>
+              <span class="author-block"><sup>2</sup><a href=""> The Robotics Institute, Carnegie Mellon University</span></a><br>
               <span class="author-block"><sup>3</sup><a href=""> Intrinsic AI (An Alphabet Company)</span></a><br>
               <span class="author-block"><sup>4</sup><a href=""> Intelligent Autonomous Systems Lab, TU Darmstadt</span></a>
             </div>
@@ -232,6 +253,14 @@
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
                 <span class="link-block">
                   <a href="" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -277,7 +306,108 @@
       </div>
     </div>
   </section>  
+  
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Amidst the wide popularity of imitation learning algorithms in robotics, their properties regarding hyperparameter sensitivity, ease of training, data efficiency, and performance have not been well-studied in high-precision industry-inspired environments. In this work, we demonstrate the limitations and benefits of prominent imitation learning approaches and analyze their capabilities regarding these properties. We evaluate each algorithm on a complex bimanual manipulation task involving an over-constrained dynamics system in a setting involving multiple contacts between the manipulated object and the environment. While we find that imitation learning is well suited to solve such complex tasks, not all algorithms are equal in terms of handling environmental and hyperparameter perturbations, training requirements, performance, and ease of use. We investigate the influence of these key characteristics by employing a carefully designed experimental procedure and learning environment.
+            </div>
+          </section>
+        
+          <section class="hero teaser">
+            <div class="container is-max-desktop">
+              <div class="hero-body">
+        
+                <center>
+                  <img src="spider.png" class="interpolation-image" alt="Interpolate start reference image." width="90%" style="border: 5px solid lightgray;"/>
+                </center>
+        
+                <h2 class="subtitle has-text-centered">
+                  <br>
+                  A high-level overview of key metrics and results from the study. 
+                </h2>
+              </div>
+            </div>
+          </section>
+          
 
+
+  <section class="section" style="padding-bottom: 0px">
+    <div class="container is-max-desktop">
+      <!-- method. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <!-- result -->
+          <h2 class="title is-3" style="margin-bottom: 0px; padding-bottom: 0px;">Related Material (<a href="https://github.com/ir-lab/irl_control">IRL Control</a>)</h2>
+          <div class="content has-text-justified">
+            <p>
+              The codebase inherits many features from IRL Control, which features:
+            <ul>
+              <li><strong>Low-level Controllers</strong> including Operational Space Control and Admittance Control.
+              <li><strong>Demo Collection</strong> with PS Move controllers and 3D Connexion Space Mouse for teleoperation.
+              </li>
+              <li><strong>Configuration Files</strong> for tuning PID Gains, min/max velocities, and adding kinematic descriptions of the robot devices.
+              </li>
+            </ul>
+
+            </p>
+          </div>
+          <!--/ result -->
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <center>
+    <div class="container-wrapper">
+      <div class="container2" >
+        <img src="ps_move_demo.gif" alt="GIF 1">
+        <img src="force_test.gif" alt="GIF 2">
+        <img src="insertion_task.gif" alt="GIF 3">
+      </div>
+    </div>
+    </center>
+  </section>
+
+  
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{drolet2024,
+        title={A Comparison of Imitation Learning Algorithms for Bimanual Manipulation},
+        author={TODO}
+      }</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <!-- <a class="icon-link" href="">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="https://github.com/mdrolet01" class="external-link" disabled>
+            <i class="fab fa-github"></i>
+          </a> -->
+          <div class="content">
+            <p>
+              This website is inspired by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
   <script>
     document.addEventListener('DOMContentLoaded', function () {
         function scrollToNextSection() {
