@@ -94,7 +94,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.23);
+      background: rgba(0, 0, 0, 0.12);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -156,7 +156,7 @@
     }
   </style>  
 
-  <style>
+  <!-- <style>
   .container2 {
       /* background-image: url("luke-chesser-unsplash2.jpg"); */
       /* background-image: url("codioful-unsplash3.jpg"); */
@@ -169,10 +169,43 @@
     }
     .container2 img {
         width: 25%;
-        margin-right: 10px; /* Adjust this value for more or less space */
+        margin-right: 10px;
     }
     .container2 img:last-child {
         margin-right: 0; /* Remove margin from the last image */
+    }
+  </style> -->
+  <style>
+    .container2 {
+        background-color: rgb(245, 245, 245);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 20px 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+    }
+
+    .gif-container {
+        width: 25%; /* Same width as your images */
+        margin-right: 10px;
+        text-align: center;
+    }
+
+    .gif-container:last-child {
+        margin-right: 0; /* Remove margin from the last image */
+    }
+
+    .gif-container img {
+        width: 100%; /* Ensures the image fits within the container */
+        height: auto;
+    }
+
+    .caption {
+        margin-top: 5px; /* Space between image and caption */
+        font-size: 14px;
+        color: #333;
     }
   </style>
 
@@ -314,18 +347,57 @@
               <div class="hero-body">
         
                 <center>
-                  <img src="spider.png" class="interpolation-image" alt="Interpolate start reference image." width="90%" style="border: 5px solid lightgray;"/>
+                  <img src="spider.png" class="interpolation-image" alt="Interpolate start reference image." width="80%" style="border: 5px solid rgb(245, 245, 245);"/>
                 </center>
         
-                <h2 class="subtitle has-text-centered">
+                <h4 class="subtitle has-text-centered" style="font-size: 1em;">
                   <br>
-                  A high-level overview of key metrics and results from the study. 
-                </h2>
+                  A high-level overview of the key metrics and results from our study. 
+                </h4>
               </div>
             </div>
           </section>
-          
 
+          
+    <section class="section" style="padding-bottom: 0px">
+      <div class="container is-max-desktop">
+        <!-- method. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <!-- result -->
+            <h2 class="title is-4" style="margin-bottom: 0px; padding-bottom: 0px;">Example Rollouts</h2>
+            <div class="content has-text-justified">
+              <p>
+                Below are examples of policy rollouts, ranging from good, to bad, to ugly! We can see that in the cases where the robot performs poorly, the policy suffers from compounding out-of-distribution errors.
+              </p>
+            </div>
+            <!--/ result -->
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <center>
+        <div class="container-wrapper">
+          <div class="container2">
+            <div class="gif-container">
+              <img src="good_robot_demo.gif" alt="GIF 1">
+              <p class="caption" style="font-size: 1em;"><b>The Good</b></p>
+            </div>
+            <div class="gif-container">
+              <img src="bad_robot_demo.gif" alt="GIF 2">
+              <p class="caption" style="font-size: 1em;"><b>The Bad</b></p>
+            </div>
+            <div class="gif-container">
+              <img src="ugly_robot_demo.gif" alt="GIF 3">
+              <p class="caption" style="font-size: 1em;"><b>The Ugly</b></p>
+            </div>
+          </div>
+        </div>
+      </center>
+    </section>
+        
 
   <section class="section" style="padding-bottom: 0px">
     <div class="container is-max-desktop">
@@ -333,10 +405,10 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
           <!-- result -->
-          <h2 class="title is-3" style="margin-bottom: 0px; padding-bottom: 0px;">Related Material (<a href="https://github.com/ir-lab/irl_control">IRL Control</a>)</h2>
+          <h2 class="title is-4" style="margin-bottom: 0px; padding-bottom: 0px;">Related Material</h2>
           <div class="content has-text-justified">
             <p>
-              The codebase inherits many features from IRL Control, which features:
+              <a href="https://github.com/ir-lab/bimanual-imitation">Our codebase</a> inherits many features from <a href="https://github.com/ir-lab/irl_control">IRL control</a>, which features:
             <ul>
               <li><strong>Low-level Controllers</strong> including Operational Space Control and Admittance Control.
               <li><strong>Demo Collection</strong> with PS Move controllers and 3D Connexion Space Mouse for teleoperation.
@@ -355,13 +427,22 @@
   
   <section>
     <center>
-    <div class="container-wrapper">
-      <div class="container2" >
-        <img src="ps_move_demo.gif" alt="GIF 1">
-        <img src="force_test.gif" alt="GIF 2">
-        <img src="insertion_task.gif" alt="GIF 3">
+      <div class="container-wrapper">
+        <div class="container2">
+          <div class="gif-container">
+            <img src="ps_move_demo.gif" alt="GIF 1">
+            <p class="caption">Teleoperation using PS Move</p>
+          </div>
+          <div class="gif-container">
+            <img src="force_test.gif" alt="GIF 2">
+            <p class="caption">Force/Torque Sensor test with admittance control</p>
+          </div>
+          <div class="gif-container">
+            <img src="insertion_task.gif" alt="GIF 3">
+            <p class="caption">Single-arm adapter insertion tasks</p>
+          </div>
+        </div>
       </div>
-    </div>
     </center>
   </section>
 
