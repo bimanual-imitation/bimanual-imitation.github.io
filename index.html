@@ -71,6 +71,18 @@
       color: white;
     }
 
+    @media (max-width: 768px) { /* For tablets and phones */
+      .overlay-h1 {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) { /* For small phones */
+      .overlay-h1 {
+        font-size: 1.2em; /* Further adjust font size for very small screens */
+      }
+    }
+
     .banner {
       position: relative;
       width: 100%;
@@ -168,7 +180,7 @@
       justify-content: center;
       max-width: 80%; /* Adjust as needed */
       margin: 0 auto; /* Center the container horizontally */
-      border-radius: 10px; /* Optional: round the corners */
+      /* border-radius: 10px; */ /* Optional: round the corners */
     }
 
     .gif-container {
