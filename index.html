@@ -36,11 +36,39 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   <style>
+    
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: auto; /* Ensure scrolling works */
+      overflow: auto;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .video-section {
+      min-height: 100vh; /* Ensures it takes up at least the full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    
+    .overlay-h1 {
+      all: unset; /* Unset all inherited and applied styles */
+      display: block; /* Ensure the element displays as a block element */
+      font-size: 2.5em; /* Set the default font size for h1 elements */
+      font-weight: bold; /* Set the default font weight for h1 elements */
+      margin: 0.67em 0; /* Set the default margin for h1 elements */
+      line-height: 1.2; /* Set the default line height for h1 elements */
+      padding: 0; /* Reset padding */
+      user-select: none; /* Prevent text selection */
+      opacity: 0; /* Start invisible */
+      transition: opacity 0.5s ease-in; /* Smooth fade transition */
+      color: white;
     }
 
     .banner {
@@ -73,51 +101,7 @@
       text-align: center;
     }
 
-    .reset-h1 {
-      all: unset; /* Unset all inherited and applied styles */
-      display: block; /* Ensure the element displays as a block element */
-      font-size: 2.5em; /* Set the default font size for h1 elements */
-      font-weight: bold; /* Set the default font weight for h1 elements */
-      /* font-family: "Times New Roman"; */
-      margin: 0.67em 0; /* Set the default margin for h1 elements */
-      line-height: 1.2; /* Set the default line height for h1 elements */
-      padding: 0; /* Reset padding */
-      user-select: none;
-    }
-
-    .overlay h1 {
-      color: transparent; /* Initial state of the text */
-      animation: fadeInOut 19s ease-in-out infinite; /* Apply animation */
-    }
-
-    @keyframes fadeInOut {
-      0%, 75% {
-        color: transparent; /* Invisible for the first 2 seconds */
-      }
-      80% {
-        color: rgba(192, 228, 255, 0.7); /* Semi-transparent during the last 2 seconds */
-      }
-      90% {
-        color: rgba(192, 228, 255, 1); /* Continue visible until the end */
-      }
-      100% {
-        color: rgba(192, 228, 255, 1); /* Continue visible until the end */
-      }
-    }
-
-    .content {
-      padding: 20px;
-    }
-
-    .video-section {
-      min-height: 100vh; /* Ensures it takes up at least the full viewport height */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background-color: #f0f0f0;
-    }
-  </style>
+</style>
 
   <style>
     .down-arrow {
@@ -175,7 +159,8 @@
   <style>
   .container2 {
       /* background-image: url("luke-chesser-unsplash2.jpg"); */
-      background-image: url("codioful-unsplash3.jpg");
+      /* background-image: url("codioful-unsplash3.jpg"); */
+      background-color: rgb(245, 245, 245);
       background-size: cover; /* Adjusts the background image to cover the container */
       background-repeat: no-repeat; /* Prevents the image from repeating */
       background-position: center; /* Centers the background image */
@@ -194,11 +179,15 @@
 </head>
 <body>
   <header class="banner">
-    <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline  oncontextmenu="return false;"  preload="auto" id="bannerVideo" data-src="video.mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="overlay">
-      <h1 class="reset-h1">A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+    <div class="banner">
+      <video autoplay loop muted playsinline oncontextmenu="return false;" preload="auto" id="bannerVideo">
+          <source src="video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  
+      <div class="overlay">
+          <h1 class="overlay-h1">A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+      </div>
     </div>
     <!-- <div class="down-arrow" onclick="scrollToNextSection()">
       &#x2193;
@@ -422,15 +411,26 @@
     });
   </script>
 
-
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var video = document.getElementById('bannerVideo');
-      var videoSrc = video.getAttribute('data-src');
-      if (videoSrc) {
-        video.src = videoSrc;
-      }
+    const video = document.getElementById('bannerVideo');
+    const bannerText = document.querySelector('.overlay h1');
+
+    video.addEventListener('timeupdate', () => {
+        const currentTime = video.currentTime;
+        const duration = video.duration;
+        const percentage = (currentTime / duration) * 100;
+
+        if (percentage >= 80) {
+          // Normalize the percentage to a value between 0 and 1
+          const normalizedOpacity = (percentage - 80) / 20; // Maps 80-100% to 0-1
+          bannerText.style.opacity = normalizedOpacity.toString();
+        } else {
+          bannerText.style.opacity = '0'; // Ensure invisible before 80%
+        }
     });
   </script>
+
+
+
 </body>
 </html>
