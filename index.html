@@ -67,7 +67,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.23);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -115,6 +115,61 @@
       background-color: #f0f0f0;
     }
   </style>
+
+  <style>
+    .down-arrow {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        z-index: 2;
+        animation: subtleBounce 3s infinite;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .v-shape-left, .v-shape-right {
+        width: 10px;
+        height: 40px;
+        background-color: white;
+        position: absolute;
+    }
+
+    .v-shape-left {
+        transform: rotate(-45deg);
+        transform-origin: bottom left;
+        left: 50%;
+    }
+
+    .v-shape-right {
+        transform: rotate(45deg);
+        transform-origin: bottom right;
+        right: 50%;
+    }
+
+    @keyframes subtleBounce {
+        0%, 20%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+
+    #next-section {
+        height: 100vh;
+        background-color: #f4f4f4;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+  </style>  
+
+
 </head>
 <body>
   <header class="banner">
@@ -122,16 +177,27 @@
       Your browser does not support the video tag.
     </video>
     <div class="overlay">
-      <h1 class="reset-h1">A Comparison Of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+      <h1 class="reset-h1">A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</h1>
     </div>
+    <!-- <div class="down-arrow" onclick="scrollToNextSection()">
+      &#x2193;
+    </div> -->
+    <!-- <div class="down-arrow" onclick="scrollToNextSection()">
+      <div class="v-shape"></div>
+    </div> -->
+    <div class="down-arrow" onclick="scrollToNextSection()">
+      <div class="v-shape-left"></div>
+      <div class="v-shape-right"></div>
+    </div>
+
   </header>
 
-  <section class="hero">
+  <section class="hero" id="main-section">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">A Comparison Of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+            <h1 class="title is-1 publication-title">A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://drolet.io/">Michael Drolet</a><sup>1,4</sup>,</span>
@@ -211,7 +277,21 @@
       </div>
     </div>
   </section>  
-  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function scrollToNextSection() {
+            const nextSection = document.getElementById('main-section');
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Attach the function to the window object so it can be called from the onclick attribute
+        window.scrollToNextSection = scrollToNextSection;
+    });
+  </script>
+
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
