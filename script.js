@@ -38,21 +38,46 @@ function updateGrid() {
     const gridContainer = document.querySelector('.grid');
     gridContainer.innerHTML = ''; // Clear any existing grid items
 
-    gridContent[gridKey].forEach(fileName => {
+    gridContent[gridKey].forEach((fileName, index) => {
         const gridItem = document.createElement('div');
         gridItem.className = 'grid-item';
-        const vid = document.createElement('video');
-        vid.src = `${fileName}`; // Update with the correct path to your images
-        vid.alt = fileName; // Alt text for accessibility
         
-        // Set autoplay and loop attributes
+        const vid = document.createElement('video');
+        vid.src = `${fileName}`;
+        vid.alt = fileName;
         vid.autoplay = true;
         vid.loop = true;
-        vid.muted = true; // Optional: Mute the video to avoid audio issues with autoplay
-
+        vid.muted = true;
+    
         gridItem.appendChild(vid);
+    
+        // Check if the index is in the top row or the leftmost column
+        const isTopRow = index >= 0 && index <= 2; // Top row (indices 0, 1, 2)
+        const isLeftColumn = index % 3 === 0; // Leftmost column (indices 0, 3, 6)
+        const isTopLeft = isTopRow && isLeftColumn; // Top-left cell (index 0 in a 3x3 grid)
+    
+        if (isTopLeft) {
+            // Add unique text overlays for the top-left cell
+            const textOverlayTop = document.createElement('div');
+            textOverlayTop.className = 'text-overlay-top';
+            textOverlayTop.textContent = `TL: ${index}`; // Customize your text here
+            gridItem.appendChild(textOverlayTop);
+    
+            const textOverlayLeft = document.createElement('div');
+            textOverlayLeft.className = 'text-overlay-left';
+            textOverlayLeft.textContent = `LI: ${index}`; // Customize your text here
+            gridItem.appendChild(textOverlayLeft);
+        } else if (isTopRow || isLeftColumn) {
+            // Handle other cells in the top row or left column
+            const textOverlay = document.createElement('div');
+            textOverlay.className = isTopRow ? 'text-overlay-top' : 'text-overlay-left';
+            textOverlay.textContent = `Index: ${index}`; // Customize your text here
+            gridItem.appendChild(textOverlay);
+        }
+    
         gridContainer.appendChild(gridItem);
     });
+    
 
     document.getElementById('display-info').textContent = `Algorithm: ${algorithm} | Num Tau: ${numTau} | Seed: ${seed}`;
 }

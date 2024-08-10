@@ -65,7 +65,9 @@
     gap: 10px;
     margin: 0 auto;
     width: fit-content;
+    padding-top: 1.5em;
 }
+
 
 @media (max-width: 600px) {
     .grid {
@@ -91,6 +93,8 @@
     border-radius: 8px;
     overflow: hidden;
     transition: box-shadow 0.3s;
+    position: relative;
+    overflow: visible;
 }
 
 .grid-item img {
@@ -102,4 +106,47 @@
 
 .grid-item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-overlay-left {
+    position: absolute;
+    left: -5em; /* Adjust this value based on your layout and desired spacing */
+    width: 5em; /* Same as the width of your grid item */
+    text-align: center;
+    color: black; /* Ensure this contrasts with the background */
+    /* background-color: red; */
+    font-size: 1em; /* Adjust text size as needed */
+    box-sizing: border-box;
+    z-index: 100000; /* Ensure it is above the video */
+    display: block; /* Ensure it is displayed */
+    visibility: visible; /* Ensure it is visible */
+}
+
+.text-overlay-top {
+    position: absolute;
+    top: -2em; /* Position at the top of the grid item */
+    width: 5em; /* Same as the width of your grid item */
+    text-align: center;
+    color: black; /* Text color */
+    /* background-color: red; */
+    font-size: 16px; /* Adjust text size */
+    box-sizing: border-box; /* Ensure padding is included in the width/height */
+    display: block; /* Ensure it is displayed */
+    visibility: visible; /* Ensure it is visible */
+}
+
+@media (max-width: 700px) {
+    .text-overlay-left {
+        position: absolute;
+        left: -5em; /* Adjust this value based on your layout and desired spacing */
+        width: 4em;
+        text-align: center;
+        color: black; /* Ensure this contrasts with the background */
+        /* background-color: red; */
+        font-size: 0.7em; /* Adjust text size as needed */
+        box-sizing: border-box;
+        z-index: 100000; /* Ensure it is above the video */
+        display: block; /* Ensure it is displayed */
+        visibility: visible; /* Ensure it is visible */
+    }
 }
