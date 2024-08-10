@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Bimanual Imitation">
@@ -8,14 +9,14 @@
   <title>Bimanual Imitation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  
+
   <!-- (Remove if cloning) !! Tag for bimanual imitation !! -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VE0696DKLE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-  
+
     gtag('config', 'G-VE0696DKLE');
   </script>
   <!-- (Remove if cloning) !! Tag for bimanual imitation !! -->
@@ -36,8 +37,8 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   <style>
-    
-    body, html {
+    body,
+    html {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -49,37 +50,54 @@
     }
 
     .video-section {
-      min-height: 100vh; /* Ensures it takes up at least the full viewport height */
+      min-height: 100vh;
+      /* Ensures it takes up at least the full viewport height */
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       background-color: #f0f0f0;
     }
-    
+
     .overlay-h1 {
-      all: unset; /* Unset all inherited and applied styles */
-      display: block; /* Ensure the element displays as a block element */
-      font-size: 2.5em; /* Set the default font size for h1 elements */
-      font-weight: bold; /* Set the default font weight for h1 elements */
-      margin: 0.67em 0; /* Set the default margin for h1 elements */
-      line-height: 1.2; /* Set the default line height for h1 elements */
-      padding: 0; /* Reset padding */
-      user-select: none; /* Prevent text selection */
-      opacity: 0; /* Start invisible */
-      transition: opacity 0.5s ease-in; /* Smooth fade transition */
+      all: unset;
+      /* Unset all inherited and applied styles */
+      display: block;
+      /* Ensure the element displays as a block element */
+      font-size: 2.5em;
+      /* Set the default font size for h1 elements */
+      font-weight: bold;
+      /* Set the default font weight for h1 elements */
+      margin: 0.67em 0;
+      /* Set the default margin for h1 elements */
+      line-height: 1.2;
+      /* Set the default line height for h1 elements */
+      padding: 0;
+      /* Reset padding */
+      user-select: none;
+      /* Prevent text selection */
+      opacity: 0;
+      /* Start invisible */
+      transition: opacity 0.5s ease-in;
+      /* Smooth fade transition */
       color: white;
     }
 
-    @media (max-width: 768px) { /* For tablets and phones */
+    @media (max-width: 768px) {
+
+      /* For tablets and phones */
       .overlay-h1 {
-        font-size: 1.5em; /* Adjust font size for smaller screens */
+        font-size: 1.5em;
+        /* Adjust font size for smaller screens */
       }
     }
 
-    @media (max-width: 480px) { /* For small phones */
+    @media (max-width: 480px) {
+
+      /* For small phones */
       .overlay-h1 {
-        font-size: 1.2em; /* Further adjust font size for very small screens */
+        font-size: 1.2em;
+        /* Further adjust font size for very small screens */
       }
     }
 
@@ -96,7 +114,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ensure the video covers the entire area */
+      object-fit: cover;
+      /* Ensure the video covers the entire area */
       z-index: -1;
     }
 
@@ -112,61 +131,66 @@
       align-items: center;
       text-align: center;
     }
-
-</style>
+  </style>
 
   <style>
     .down-arrow {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        cursor: pointer;
-        z-index: 2;
-        animation: subtleBounce 2.5s infinite;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      z-index: 2;
+      animation: subtleBounce 2.5s infinite;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .v-shape-left, .v-shape-right {
-        width: 10px;
-        height: 40px;
-        background-color: white;
-        position: absolute;
+    .v-shape-left,
+    .v-shape-right {
+      width: 10px;
+      height: 40px;
+      background-color: white;
+      position: absolute;
     }
 
     .v-shape-left {
-        transform: rotate(-45deg);
-        transform-origin: bottom left;
-        left: 50%;
+      transform: rotate(-45deg);
+      transform-origin: bottom left;
+      left: 50%;
     }
 
     .v-shape-right {
-        transform: rotate(45deg);
-        transform-origin: bottom right;
-        right: 50%;
+      transform: rotate(45deg);
+      transform-origin: bottom right;
+      right: 50%;
     }
 
     @keyframes subtleBounce {
-        0%, 20%, 80%, 100% {
-            transform: translateX(-50%) translateY(0);
-        }
-        50% {
-            transform: translateX(-50%) translateY(-5px);
-        }
+
+      0%,
+      20%,
+      80%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(-5px);
+      }
     }
 
 
     #next-section {
-        height: 100vh;
-        background-color: #f4f4f4;
-        padding: 20px;
-        box-sizing: border-box;
+      height: 100vh;
+      background-color: #f4f4f4;
+      padding: 20px;
+      box-sizing: border-box;
     }
-  </style>  
+  </style>
 
   <style>
     .container2 {
@@ -178,44 +202,53 @@
       box-sizing: border-box;
       display: flex;
       justify-content: center;
-      max-width: 80%; /* Adjust as needed */
-      margin: 0 auto; /* Center the container horizontally */
-      /* border-radius: 10px; */ /* Optional: round the corners */
+      max-width: 80%;
+      /* Adjust as needed */
+      margin: 0 auto;
+      /* Center the container horizontally */
+      /* border-radius: 10px; */
+      /* Optional: round the corners */
     }
 
     .gif-container {
-        width: 28%; /* Same width as your images */
-        margin-right: 2%;
-        text-align: center;
+      width: 28%;
+      /* Same width as your images */
+      margin-right: 2%;
+      text-align: center;
     }
 
     .gif-container:last-child {
-        margin-right: 0; /* Remove margin from the last image */
+      margin-right: 0;
+      /* Remove margin from the last image */
     }
 
     .gif-container img {
-        width: 100%; /* Ensures the image fits within the container */
-        height: auto;
+      width: 100%;
+      /* Ensures the image fits within the container */
+      height: auto;
     }
 
     .caption {
-        margin-top: 5px; /* Space between image and caption */
-        font-size: 14px;
-        color: #333;
+      margin-top: 5px;
+      /* Space between image and caption */
+      font-size: 14px;
+      color: #333;
     }
   </style>
+  <link rel="stylesheet" href="styles.css">
 
 </head>
+
 <body>
   <header class="banner">
     <div class="banner">
       <video autoplay loop muted playsinline oncontextmenu="return false;" preload="auto" id="bannerVideo">
-          <source src="static/videos/banner.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <source src="static/videos/banner.mp4" type="video/mp4">
+        Your browser does not support the video tag.
       </video>
-  
+
       <div class="overlay">
-          <h1 class="overlay-h1">A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+        <h1 class="overlay-h1">A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</h1>
       </div>
     </div>
     <!-- <div class="down-arrow" onclick="scrollToNextSection()">
@@ -236,7 +269,8 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">A Comparison of Imitation Learning Algorithms for Bimanual Manipulation</h1>
+            <h1 class="title is-1 publication-title">A Comparison of Imitation Learning Algorithms for Bimanual
+              Manipulation</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://drolet.io/">Michael Drolet</a><sup>1,4</sup>,</span>
@@ -258,16 +292,18 @@
                 <a href="http://henibenamor.weebly.com/">Heni Ben Amor</a><sup>1</sup>
               </span>
             </div>
-  
+
             <div class="is-size-5 publication-unis">
               <span class="author-block"><sup>1</sup><a
                   href="https://interactive-robotics.engineering.asu.edu/">Interactive Robotics Lab, Arizona State
                   University</span></a><br>
-              <span class="author-block"><sup>2</sup><a href=""> The Robotics Institute, Carnegie Mellon University</span></a><br>
+              <span class="author-block"><sup>2</sup><a href=""> The Robotics Institute, Carnegie Mellon
+                  University</span></a><br>
               <span class="author-block"><sup>3</sup><a href=""> Intrinsic AI (An Alphabet Company)</span></a><br>
-              <span class="author-block"><sup>4</sup><a href=""> Intelligent Autonomous Systems Lab, TU Darmstadt</span></a>
+              <span class="author-block"><sup>4</sup><a href=""> Intelligent Autonomous Systems Lab, TU
+                  Darmstadt</span></a>
             </div>
-  
+
             <div class="column has-text-centered">
               <div class="publication-links">
                 <!-- PDF Link. -->
@@ -298,8 +334,7 @@
                 </span> -->
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href=""
-                    class="external-link button is-normal is-rounded is-dark">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -317,15 +352,15 @@
                   </a>
                 </span> -->
               </div>
-  
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>  
-  
-  
+  </section>
+
+
   <section class="section">
     <div class="container is-max-desktop">
       <!-- Abstract. -->
@@ -334,66 +369,137 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Amidst the wide popularity of imitation learning algorithms in robotics, their properties regarding hyperparameter sensitivity, ease of training, data efficiency, and performance have not been well-studied in high-precision industry-inspired environments. In this work, we demonstrate the limitations and benefits of prominent imitation learning approaches and analyze their capabilities regarding these properties. We evaluate each algorithm on a complex bimanual manipulation task involving an over-constrained dynamics system in a setting involving multiple contacts between the manipulated object and the environment. While we find that imitation learning is well suited to solve such complex tasks, not all algorithms are equal in terms of handling environmental and hyperparameter perturbations, training requirements, performance, and ease of use. We investigate the influence of these key characteristics by employing a carefully designed experimental procedure and learning environment.
-            </div>
-          </section>
-        
-          <section class="hero teaser">
-            <div class="container is-max-desktop">
-              <div class="hero-body">
-        
-                <center>
-                  <img src="static/images/spider.png" class="interpolation-image" alt="Interpolate start reference image." width="80%" style="border: 5px solid rgb(245, 245, 245);"/>
-                </center>
-        
-                <h4 class="subtitle has-text-centered" style="font-size: 1em;">
-                  <br>
-                  A high-level overview of the key metrics and results from our study. 
-                </h4>
-              </div>
-            </div>
-          </section>
-
-          
-    <section class="section" style="padding-bottom: 0px">
-      <div class="container is-max-desktop">
-        <!-- method. -->
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full-width">
-            <!-- result -->
-            <h2 class="title is-4" style="margin-bottom: 0px; padding-bottom: 0px;">Example Rollouts</h2>
-            <div class="content has-text-justified">
-              <p>
-                Below are examples of policy rollouts, ranging from good, to bad, to ugly! We can see that in the cases where the robot performs poorly, the policy suffers from compounding out-of-distribution errors.
-              </p>
-            </div>
-            <!--/ result -->
+              Amidst the wide popularity of imitation learning algorithms in robotics, their properties regarding
+              hyperparameter sensitivity, ease of training, data efficiency, and performance have not been well-studied
+              in high-precision industry-inspired environments. In this work, we demonstrate the limitations and
+              benefits of prominent imitation learning approaches and analyze their capabilities regarding these
+              properties. We evaluate each algorithm on a complex bimanual manipulation task involving an
+              over-constrained dynamics system in a setting involving multiple contacts between the manipulated object
+              and the environment. While we find that imitation learning is well suited to solve such complex tasks, not
+              all algorithms are equal in terms of handling environmental and hyperparameter perturbations, training
+              requirements, performance, and ease of use. We investigate the influence of these key characteristics by
+              employing a carefully designed experimental procedure and learning environment.
           </div>
         </div>
       </div>
-    </section>
-    
-    <section>
+
+      <!-- Abstract. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our experiments indicate that recent Imitation Learning methods, such as Diffusion and ACT, outperform
+              traditional techniques (with respect to various metrics) on our high-precision adapter insertion task
+              without the need for extensive hyperparameter tuning. The policy architectures proposed by ACT and
+              Diffusion are effective when combined with action and observation chunking, helping to cope with the noisy
+              (potentially non-Markovian) environment scenario. Interestingly, the online methods- DAgger and GAIL-
+              exhibit high performance under noise perturbations without performing action and observation chunking.
+              Such a result points to the important role these methods still play and demonstrates their ability to
+              recover from unseen states via exploring during training. However, the need for extensive environment
+              interaction (GAIL) and a pre-defined oracle (DAgger) impose real-world challenges that future works must
+              address to make them more practical. Finally, we present a carefully designed environment that can serve
+              as (i) a future benchmark for robot learning methods and (ii) a reference for practitioners in the
+              industry.
+          </div>
+        </div>
+      </div>
+
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+
+          <center>
+            <img src="static/images/spider.png" class="interpolation-image" alt="Interpolate start reference image."
+              width="80%" style="border: 5px solid rgb(245, 245, 245);" />
+          </center>
+
+          <h4 class="subtitle has-text-centered" style="font-size: 1em;">
+            <br>
+            A high-level overview of the key metrics and results from our study.
+          </h4>
+        </div>
+      </div>
+
+      <h2 class="title is-3">Learned Policies</h2>
+      <div class="content has-text-justified">
+        <p>
+          Every method is trained using a subset of expert demonstrations (either 50, 100, or 200), 10 random seeds, and in three different environments (Zero Noise, Low Noise, or High Noise). The policies during training are presented in the widget below. Row 1 corresponds to 10% of completion; row 2 corresponds to 50% of completion; and row 3 corresponds to 100% completion. Column 1 corresponds to the Zero Noise environment; column 2 corresponds to the Low Noise environment, and column 3 corresponds to the High Noise environment.
+      </div>
       <center>
-        <div>
-          <div class="container2">
-            <div class="gif-container">
-              <img src="static/gifs/good_robot_demo.gif" alt="GIF 1">
-              <p class="caption" style="font-size: 1em;"><b>The Good</b></p>
+        <div id="display-info" class="display-info">
+          Algorithm: Alg 1 | Num Tau: 128 | Seed: 0
+        </div>
+        <div class="container3">
+          <!-- Display current algorithm, num tau, and seed -->
+
+          <!-- Navigation bar for Algorithm, Num Tau, and Seed -->
+          <div class="nav-container3">
+            <div class="nav-bar">
+              <button id="prevAlgBtn" class="nav-arrow">←</button>
+              <span class="nav-label">Algorithm</span>
+              <button id="nextAlgBtn" class="nav-arrow">→</button>
             </div>
-            <div class="gif-container">
-              <img src="static/gifs/bad_robot_demo.gif" alt="GIF 2">
-              <p class="caption" style="font-size: 1em;"><b>The Bad</b></p>
+
+            <div class="nav-bar">
+              <button id="prevTauBtn" class="nav-arrow">←</button>
+              <span class="nav-label">Num Tau</span>
+              <button id="nextTauBtn" class="nav-arrow">→</button>
             </div>
-            <div class="gif-container">
-              <img src="static/gifs/ugly_robot_demo.gif" alt="GIF 3">
-              <p class="caption" style="font-size: 1em;"><b>The Ugly</b></p>
+
+            <div class="nav-bar">
+              <button id="prevSeedBtn" class="nav-arrow">←</button>
+              <span class="nav-label">Seed</span>
+              <button id="nextSeedBtn" class="nav-arrow">→</button>
             </div>
+          </div>
+
+          <!-- Grid for images/alt text -->
+          <div class="grid">
+            <!-- The grid items will be populated dynamically -->
           </div>
         </div>
       </center>
-    </section>
-        
+
+  </section>
+
+
+  <!-- <section class="section" style="padding-bottom: 0px">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-4" style="margin-bottom: 0px; padding-bottom: 0px;">Example Rollouts</h2>
+          <div class="content has-text-justified">
+            <p>
+              Below are examples of policy rollouts, ranging from good, to bad, to ugly! We can see that in the cases
+              where the robot performs poorly, the policy suffers from compounding out-of-distribution errors.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <center>
+      <div>
+        <div class="container2">
+          <div class="gif-container">
+            <img src="static/gifs/good_robot_demo.gif" alt="GIF 1">
+            <p class="caption" style="font-size: 1em;"><b>The Good</b></p>
+          </div>
+          <div class="gif-container">
+            <img src="static/gifs/bad_robot_demo.gif" alt="GIF 2">
+            <p class="caption" style="font-size: 1em;"><b>The Bad</b></p>
+          </div>
+          <div class="gif-container">
+            <img src="static/gifs/ugly_robot_demo.gif" alt="GIF 3">
+            <p class="caption" style="font-size: 1em;"><b>The Ugly</b></p>
+          </div>
+        </div>
+      </div>
+    </center>
+  </section> -->
+
 
   <section class="section" style="padding-bottom: 0px">
     <div class="container is-max-desktop">
@@ -404,12 +510,15 @@
           <h2 class="title is-4" style="margin-bottom: 0px; padding-bottom: 0px;">Related Material</h2>
           <div class="content has-text-justified">
             <p>
-              <a href="https://github.com/ir-lab/bimanual-imitation">Our codebase</a> inherits features from <a href="https://github.com/ir-lab/irl_control">IRL control</a>, which supports:
+              <a href="https://github.com/ir-lab/bimanual-imitation">Our codebase</a> inherits features from <a
+                href="https://github.com/ir-lab/irl_control">IRL control</a>, which supports:
             <ul>
               <li><strong>Low-level Controllers</strong> including Operational Space Control and Admittance Control.
-              <li><strong>Demo Collection</strong> with PS Move controllers and 3D Connexion Space Mouse for teleoperation.
+              <li><strong>Demo Collection</strong> with PS Move controllers and 3D Connexion Space Mouse for
+                teleoperation.
               </li>
-              <li><strong>Configuration Files</strong> for tuning PID Gains, min/max velocities, and adding kinematic descriptions of the robot devices.
+              <li><strong>Configuration Files</strong> for tuning PID Gains, min/max velocities, and adding kinematic
+                descriptions of the robot devices.
               </li>
             </ul>
 
@@ -420,7 +529,7 @@
       </div>
     </div>
   </section>
-  
+
   <section>
     <center>
       <div class="container-wrapper">
@@ -442,7 +551,7 @@
     </center>
   </section>
 
-  
+
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
@@ -466,25 +575,25 @@
           </a> -->
           <div class="content">
             <p>
-              This website is inspired by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+              This website uses the template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
             </p>
           </div>
         </div>
       </div>
     </div>
   </footer>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-        function scrollToNextSection() {
-            const nextSection = document.getElementById('main-section');
-            if (nextSection) {
-                nextSection.scrollIntoView({ behavior: 'smooth' });
-            }
+      function scrollToNextSection() {
+        const nextSection = document.getElementById('main-section');
+        if (nextSection) {
+          nextSection.scrollIntoView({ behavior: 'smooth' });
         }
+      }
 
-        // Attach the function to the window object so it can be called from the onclick attribute
-        window.scrollToNextSection = scrollToNextSection;
+      // Attach the function to the window object so it can be called from the onclick attribute
+      window.scrollToNextSection = scrollToNextSection;
     });
   </script>
 
@@ -493,21 +602,23 @@
     const bannerText = document.querySelector('.overlay h1');
 
     video.addEventListener('timeupdate', () => {
-        const currentTime = video.currentTime;
-        const duration = video.duration;
-        const percentage = (currentTime / duration) * 100;
+      const currentTime = video.currentTime;
+      const duration = video.duration;
+      const percentage = (currentTime / duration) * 100;
 
-        if (percentage >= 80) {
-          // Normalize the percentage to a value between 0 and 1
-          const normalizedOpacity = (percentage - 80) / 20; // Maps 80-100% to 0-1
-          bannerText.style.opacity = normalizedOpacity.toString();
-        } else {
-          bannerText.style.opacity = '0'; // Ensure invisible before 80%
-        }
+      if (percentage >= 75) {
+        // Normalize the percentage to a value between 0 and 1
+        const normalizedOpacity = (percentage - 75) / 25; // Maps 80-100% to 0-1
+        bannerText.style.opacity = normalizedOpacity.toString();
+      } else {
+        bannerText.style.opacity = '0'; // Ensure invisible before 80%
+      }
     });
   </script>
 
+  <script src="script.js"></script>
 
 
 </body>
+
 </html>
