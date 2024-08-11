@@ -41,7 +41,13 @@ const gridContent = buildGridData();
 
 function updateGrid() {
     const algorithm = algorithms[currentAlgorithmIndex];
-    const numTau = numTaus[currentTauIndex];
+    // const numTau = numTaus[currentTauIndex];
+    let numTau = numTaus[currentTauIndex];
+
+    if (algorithm == "dagger") {
+        numTau = 200;
+    }
+    
     const seed = seeds[currentSeedIndex];
     const gridKey = `${algorithm}-${numTau}-${seed}`;
     
@@ -161,6 +167,16 @@ function updateGlobalIndex(element) {
         index = (index + arrayLength - 1) % arrayLength;
     }
 
+    if ((variableName === 'currentAlgorithmIndex') && (algorithms[index] == "dagger")) {
+        currentTauIndex = 2;
+        const element = document.querySelector('.button-container.middle');
+        element.querySelector('.button-text pre').innerText = formatValue('currentTauIndex', currentTauIndex);
+    }
+    
+    if ((variableName === 'currentTauIndex') && (algorithms[currentAlgorithmIndex] == "dagger")) {
+        index = 2;
+    } 
+
     buttonContainer.setAttribute('data-index', index);
     buttonContainer.querySelector('.button-text pre').innerText = formatValue(variableName, index);
 
@@ -172,10 +188,6 @@ function updateGlobalIndex(element) {
         currentSeedIndex = index;
     }
 
-
-    console.log('currentAlgorithmIndex:', currentAlgorithmIndex, 'Value:', algorithms[currentAlgorithmIndex]);
-    console.log('currentTauIndex:', currentTauIndex, 'Value:', numTaus[currentTauIndex]);
-    console.log('currentSeedIndex:', currentSeedIndex, 'Value:', seeds[currentSeedIndex]);
     updateGrid();
 }
 
