@@ -313,8 +313,8 @@
             <h2 class="title is-5" style="padding: 0px; margin: 0.5em;">Force/Torque Sensing</h2>
             <img src="static/gifs/force_test.gif" type="video/mp4">
             <p style="text-align: justify;">
-              This example makes use of the robot's force/torque to demonstrate how the admittance controller reacts to the external environment. 
-              The target position of the left arm is given, such that, upon hitting the wall, the arm must gently bounce backward insteading of pushing against the wall with a larger force to reach the desired position.
+              This example makes use of the robot's force/torque sensor to demonstrate how the admittance controller reacts to the external environment. 
+              The target position of the left arm is given, such that, upon hitting the wall, the arm must gently bounce backward insteading of pushing against the wall (with a larger force) to reach the desired position.
             </p>
           </div>
         </div>
@@ -331,7 +331,7 @@
             <h2 class="title is-5" style="padding: 0px; margin: 0.5em;">Single Arm Insertion Tasks</h2>
             <img src="static/gifs/insertion_task.gif" type="video/mp4">
             <p style="text-align: justify;">
-              The robot performs adapter insertion, with each component spawned at a randomly generated angle and position. The robot must precisely align and insert the components under a small tolerance and execute a sequence of actions defined by a YAML file. This file defines a generic algorithm that can be executed on either arm, as well as: how much force the gripper should apply at each stage of the task, the velocity constraints, and the objects involved in the action (containing information on the proper location and orientation for picking/inserting).              
+              The robot performs adapter insertion, with each component spawned at a randomly generated angle and position. The robot must precisely align and insert the components with a small tolerance and execute a sequence of actions defined by a YAML file. This file defines instructions that can be executed on either arm, as well as: how much force the gripper should apply at each stage of the task, the velocity constraints, and the objects involved in the action (containing information on the proper location and orientation for picking/inserting).              
             </p>
           </div>
         </div>
@@ -362,8 +362,10 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@article{drolet2024,
-        title={A Comparison of Imitation Learning Algorithms for Bimanual Manipulation},
-        author={TODO}
+        author    = {Drolet, Michael and Stepputtis, Simon and Kailas, Siva and Jain, Ajinkya and Peters, Jan and Schaal, Stefan and Ben Amor, Heni},
+        title     = {A Comparison of Imitation Learning Algorithms for Bimanual Manipulation},
+        journal   = {RA-L},
+        year      = {2024},
       }</code></pre>
     </div>
   </section>
