@@ -367,10 +367,10 @@ video {
 
     .button-container {
         position: relative;
-        width: 23vw;
+        width: 56vw;
         height: 3vh;
         margin: 0.5vh auto;
-        font-size: 1em;
+        font-size: 0.7em;
         text-align: center;
         background-color: #333333;
         line-height: 3vh;
