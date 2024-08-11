@@ -196,17 +196,16 @@ function updateGlobalIndex(element) {
     }
     else{
         buttonContainer.querySelector('.button-text pre').innerText = formatValue(variableName, index);
-    } 
+        buttonContainer.setAttribute('data-index', index);
     
-    buttonContainer.setAttribute('data-index', index);
-
-    if (variableName === 'currentAlgorithmIndex') {
-        currentAlgorithmIndex = index;
-    } else if (variableName === 'currentTauIndex') {
-        currentTauIndex = index;
-    } else if (variableName === 'currentSeedIndex') {
-        currentSeedIndex = index;
-    }
+        if (variableName === 'currentAlgorithmIndex') {
+            currentAlgorithmIndex = index;
+        } else if (variableName === 'currentTauIndex') {
+            currentTauIndex = index;
+        } else if (variableName === 'currentSeedIndex') {
+            currentSeedIndex = index;
+        }
+    } 
 
     updateGrid();
 }
