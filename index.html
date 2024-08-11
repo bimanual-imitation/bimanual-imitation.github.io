@@ -235,6 +235,104 @@
       color: #333;
     }
   </style>
+
+  <style>
+    .button-container {
+      position: relative;
+      width: 380px;
+      /* Wider width for better alignment */
+      height: 3vh;
+      /* Slimmer height */
+      margin: 0.5vh auto;
+      font-size: 18px;
+      /* Adjusted font size for consistency */
+      text-align: center;
+      /* Center text vertically */
+      background-color: #333333;
+      /* Default background color */
+      color: white;
+      border-radius: 8px;
+      /* Slightly rounded corners */
+      cursor: pointer;
+      overflow: hidden;
+      user-select: none;
+      font-family: monospace;
+      padding: 0px;
+      /* Ensure monospaced font for consistent formatting */
+    }
+
+    .button-container.top {
+      background-color: #1a1a1a;
+      /* Darkest gray */
+    }
+
+    .button-container.middle {
+      background-color: #717171;
+      /* Medium gray */
+    }
+
+    .button-container.bottom {
+      background-color: #999999;
+      /* Lighter gray */
+    }
+
+    .button-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0);
+      /* Transparent overlay */
+    }
+
+    .button-overlay.left {
+      left: 0;
+    }
+
+    .button-overlay.right {
+      right: 0;
+    }
+
+    /* V-shaped arrows */
+    .button-overlay.left::before {
+      content: "◄";
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      /* Adjusted arrow size */
+      color: white;
+    }
+
+    .button-overlay.right::before {
+      content: "►";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      /* Adjusted arrow size */
+      color: white;
+    }
+
+    /* Single text string styling */
+    .button-text pre {
+      display: inline;
+      /* Use inline to keep text within the button */
+      margin: 0;
+      /* Remove default margins of <pre> */
+    }
+  
+    .cbutton {
+        color: white;
+        background-color: inherit;
+        padding: 0px;
+        margin: 0px;
+    }
+  </style>
+
   <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -421,19 +519,45 @@
       </div>
 
       <h2 class="title is-3">Learned Policies</h2>
-      <div class="content has-text-justified">
+      <div class="content has-text-justified" style="margin-bottom: 0px;">
         <p>
-          Every method is trained using a subset of expert demonstrations (either 50, 100, or 200), 10 random seeds, and in three different environments (Zero Noise, Low Noise, or High Noise). The policies during training are presented in the widget below. Row 1 corresponds to 10% of completion; row 2 corresponds to 50% of completion; and row 3 corresponds to 100% completion. Column 1 corresponds to the Zero Noise environment; column 2 corresponds to the Low Noise environment, and column 3 corresponds to the High Noise environment.
+          Every method is trained using a subset of expert demonstrations (either 50, 100, or 200), 10 random seeds, and
+          in three different environments (Zero Noise, Low Noise, or High Noise). The policies during training are
+          presented in the widget below. Row 1 corresponds to 10% of completion; row 2 corresponds to 50% of completion;
+          and row 3 corresponds to 100% completion. Column 1 corresponds to the Zero Noise environment; column 2
+          corresponds to the Low Noise environment, and column 3 corresponds to the High Noise environment.
       </div>
       <center>
-        <div id="display-info" class="display-info">
-          Algorithm: Alg 1 | Num Tau: 128 | Seed: 0
+        <div class="button-container top" data-index="0" data-variable="currentAlgorithmIndex">
+          <span class="button-text">
+            <pre class="cbutton"></pre>
+          </span>
+          <div class="button-overlay left" onclick="updateGlobalIndex(this)"></div>
+          <div class="button-overlay right" onclick="updateGlobalIndex(this)"></div>
         </div>
+
+        <div class="button-container middle" data-index="0" data-variable="currentTauIndex">
+          <span class="button-text">
+            <pre class="cbutton"></pre>
+          </span>
+          <div class="button-overlay left" onclick="updateGlobalIndex(this)"></div>
+          <div class="button-overlay right" onclick="updateGlobalIndex(this)"></div>
+        </div>
+
+        <div class="button-container bottom" data-index="0" data-variable="currentSeedIndex">
+          <span class="button-text">
+            <pre class="cbutton"></pre>
+          </span>
+          <div class="button-overlay left" onclick="updateGlobalIndex(this)"></div>
+          <div class="button-overlay right" onclick="updateGlobalIndex(this)"></div>
+        </div>
+        <br>
+
         <div class="container3">
           <!-- Display current algorithm, num tau, and seed -->
 
           <!-- Navigation bar for Algorithm, Num Tau, and Seed -->
-          <div class="nav-container3">
+          <!-- <div class="nav-container3">
             <div class="nav-bar">
               <button id="prevAlgBtn" class="nav-arrow">←</button>
               <span class="nav-label">Algorithm</span>
@@ -448,16 +572,20 @@
 
             <div class="nav-bar">
               <button id="prevSeedBtn" class="nav-arrow">←</button>
-              <span class="nav-label">Seed</span>
+              <span class="nav-label" style="white-space: pre-wrap;">Seed</span>
               <button id="nextSeedBtn" class="nav-arrow">→</button>
             </div>
-          </div>
+          </div> -->
+
 
           <!-- Grid for images/alt text -->
           <div class="grid">
             <!-- The grid items will be populated dynamically -->
           </div>
+
         </div>
+        <pre id="display-info" class="display-info" style="background-color: inherit; font-size: 1em; padding: 10px; margin: 10px;">
+        </pre>
       </center>
 
   </section>
