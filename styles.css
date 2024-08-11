@@ -1,3 +1,7 @@
+.hero-body {
+  padding-top: 1.5vh;
+}
+
 /* FOR GIFS */
 .container2 {
     background-color: rgb(245, 245, 245);
@@ -34,6 +38,10 @@
 }
 /* FOR GIFS */
 
+.spider{
+  border: 5px solid rgb(245, 245, 245);
+  width: 80%;
+}
 
 /* FOR WIDGET BUTTONS */
 .button-container {
@@ -335,7 +343,26 @@ video {
 }
 
 /* FOR VIDEO GRID */
+@media (max-width: 1200px) {
+  .button-container {
+    position: relative;
+    width: 44vw;
+    height: 3vh;
+    margin: 0.5vh auto;
+    font-size: 1m;
+    text-align: center;
+    background-color: #333333;
+    line-height: 3vh;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    font-family: monospace;
+    padding: 0px;
+  }
 
+}
 
 @media (max-width: 700px) {
     .text-overlay-left {
@@ -370,7 +397,7 @@ video {
         width: 56vw;
         height: 3vh;
         margin: 0.5vh auto;
-        font-size: 0.7em;
+        font-size: 0.85em;
         text-align: center;
         background-color: #333333;
         line-height: 3vh;
@@ -381,10 +408,15 @@ video {
         user-select: none;
         font-family: monospace;
         padding: 0px;
-      }    
+      }
 
       .overlay-h1 {
         font-size: 1.4em;
+      }
+
+      .spider{
+        border: 5px solid rgb(245, 245, 245);
+        width: 100%;
       }
 
 }
