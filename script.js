@@ -153,8 +153,8 @@ function formatValue(variableName, index) {
     index = (index + arrayLength) % arrayLength;
 
     // Formatting values: assuming fixed widths
-    const labelWidth = 0; // Adjust based on your needs
-    const valueWidth = 0; // Adjust based on your needs
+    const labelWidth = 10; // Adjust based on your needs
+    const valueWidth = 9; // Adjust based on your needs
 
     const label = labelMap[variableName] || '';
     const formattedLabel = label.padEnd(labelWidth, ' ');

@@ -38,7 +38,7 @@
 /* FOR WIDGET BUTTONS */
 .button-container {
     position: relative;
-    width: 380px;
+    width: 23vw;
     height: 3vh;
     margin: 0.5vh auto;
     font-size: 18px;
@@ -367,7 +367,7 @@ video {
 
     .button-container {
         position: relative;
-        width: 380px;
+        width: 23vw;
         height: 3vh;
         margin: 0.5vh auto;
         font-size: 1em;
