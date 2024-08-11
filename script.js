@@ -127,12 +127,11 @@ function formatValue(variableName, index) {
     const array = getArrayForVariable(variableName);
     const arrayLength = array.length;
     
-    
     let value;
     if (variableName === 'currentAlgorithmIndex') {
-        value = algNameMap[array[index]]; // Use 'value' instead of 'const value'
+        value = algNameMap[array[index]];
     } else {
-        value = array[index]; // Use 'value' instead of 'const value'
+        value = array[index];
     }
     
     // Ensure index is within bounds
@@ -168,17 +167,23 @@ function updateGlobalIndex(element) {
     }
 
     if ((variableName === 'currentAlgorithmIndex') && (algorithms[index] == "dagger")) {
-        currentTauIndex = 2;
-        const element = document.querySelector('.button-container.middle');
-        element.querySelector('.button-text pre').innerText = formatValue('currentTauIndex', currentTauIndex);
+        const ntau = document.querySelector('.button-container.middle');
+        ntau.querySelector('.button-text pre').innerText = "N/A";
     }
+    else if (variableName === 'currentAlgorithmIndex') {
+        const ntau = document.querySelector('.button-container.middle');
+        ntau.querySelector('.button-text pre').innerText = formatValue('currentTauIndex', currentTauIndex);
+    }
+
     
     if ((variableName === 'currentTauIndex') && (algorithms[currentAlgorithmIndex] == "dagger")) {
-        index = 2;
+        buttonContainer.querySelector('.button-text pre').innerText = "N/A";
+    }
+    else{
+        buttonContainer.querySelector('.button-text pre').innerText = formatValue(variableName, index);
     } 
-
+    
     buttonContainer.setAttribute('data-index', index);
-    buttonContainer.querySelector('.button-text pre').innerText = formatValue(variableName, index);
 
     if (variableName === 'currentAlgorithmIndex') {
         currentAlgorithmIndex = index;
