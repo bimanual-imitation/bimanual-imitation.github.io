@@ -251,6 +251,10 @@
   
 /* FOR BANNER VIDEO */
 
+video {
+  pointer-events: none;
+  display: block;
+}
 
 /* FOR VIDEO GRID */
 .grid {

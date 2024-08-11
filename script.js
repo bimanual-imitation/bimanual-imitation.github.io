@@ -65,9 +65,20 @@ function updateGrid() {
         vid.loop = true;
         vid.muted = true;
         vid.playsInline = true;
-        vid.oncontextmenu = function() { return false; };
-        vid.loop = true;
+        vid.disablePictureInPicture = true;
         vid.preload = 'auto';
+        
+        // Prevent context menu
+        vid.oncontextmenu = function() { return false; };
+        
+        // Prevent video interaction on iPhone
+        vid.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+        
+        vid.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+        });
     
         gridItem.appendChild(vid);
     
@@ -142,8 +153,8 @@ function formatValue(variableName, index) {
     index = (index + arrayLength) % arrayLength;
 
     // Formatting values: assuming fixed widths
-    const labelWidth = 5; // Adjust based on your needs
-    const valueWidth = 5; // Adjust based on your needs
+    const labelWidth = 0; // Adjust based on your needs
+    const valueWidth = 0; // Adjust based on your needs
 
     const label = labelMap[variableName] || '';
     const formattedLabel = label.padEnd(labelWidth, ' ');
