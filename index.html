@@ -228,9 +228,10 @@
         <p>
           Every method is trained using a subset of expert demonstrations (either 50, 100, or 200), 10 random seeds, and
           in three different environments (Zero Noise, Low Noise, or High Noise). The policies during training are
-          presented in the widget below. Row 1 corresponds to 10% of completion; row 2 corresponds to 50% of completion;
+          presented below. Row 1 corresponds to 10% of training completion; row 2 corresponds to 50% of completion;
           and row 3 corresponds to 100% completion. Column 1 corresponds to the Zero Noise environment; column 2
-          corresponds to the Low Noise environment, and column 3 corresponds to the High Noise environment.
+          corresponds to the Low Noise environment; and column 3 corresponds to the High Noise environment, where noise is applied to both the observations and actions.
+        </p>
       </div>
       <center>
         <div class="button-container top" data-index="0" data-variable="currentAlgorithmIndex">
@@ -264,21 +265,22 @@
         </div>
         <!-- <pre id="display-info" class="display-info" style="background-color: inherit; font-size: 1em; padding: 10px; margin: 10px;"></pre> -->
       </center>
+      <br>
+      
+      <div class="content has-text-justified" style="margin-bottom: 0px;">
+        <p>
+          It can be seen that vanilla Behavioral Cloning (BC), Implicit Behavioral Cloning (IBC), and DAgger struggle in terms of training stability, having relatively inconsistent performance over time. However, in the default environment (Zero Noise with 200 expert deomonstrations) the performance is often satisfactory when choosing the best policy out of 10 evenly-spaced checkpoints. On the other hand, ACT and Diffusion exhibit stable behavior throughout the training process and, comparatively, quickly obtain good policy parameters. Notably, the GAIL policies exhibit strong performance toward the end of training- in all environments, once the discriminator and generator/policy reach a stable state. However, the amount of time required for this to happen is significantly higher than the other methods.
+        </p>
+      </div>
+      <br>
 
-  </section>
-
-
-  <section class="section" style="padding-bottom: 0px">
-    <div class="container is-max-desktop">
-      <!-- method. -->
-      <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered">
         <div class="column is-full-width">
-          <!-- result -->
-          <h2 class="title is-4" style="margin-bottom: 0px; padding-bottom: 0px;">Related Material</h2>
-          <div class="content has-text-justified">
+          <h2 class="title is-3">Related Material</h2>
+          <div class="content has-text-justified" style="margin: 0px; padding-bottom: 0px;">
             <p>
               <a href="https://github.com/ir-lab/bimanual-imitation">Our codebase</a> inherits features from <a
-                href="https://github.com/ir-lab/irl_control">IRL control</a>, which supports:
+                href="https://github.com/ir-lab/irl_control">IRL Control</a>, which supports:
             <ul>
               <li><strong>Low-level Controllers</strong> including Operational Space Control and Admittance Control.
               <li><strong>Demo Collection</strong> with PS Move controllers and 3D Connexion Space Mouse for
@@ -288,34 +290,71 @@
                 descriptions of the robot devices.
               </li>
             </ul>
-
+            As our work focuses on learning in the operational/task space, we extend IRL Control to implicitly control the robot's torso through the nullspace. Thus, the action space can be characterized by using only the change in position/rotation of two end effectors. Some of the key features available are described below.
             </p>
           </div>
-          <!--/ result -->
+      <!--/ method. -->
+      <div class="columns is-centered has-text-centered">
+        <!-- Regid Body motion -->
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-5" style="padding: 0px; margin: 0.5em;">Data Collection and Teleoperation</h2>
+            <img src="static/gifs/ps_move_demo.gif" type="video/mp4">
+            <p style="text-align: justify;">
+              The user teleoperates the robot for picking up objects in the scene. PS Move controllers allow for opening/closing the gripper and selecting a target which the robot moves to when the trigger is pressed. This setup can be used for collecting expert demonstrations, especially if the task is not sufficiently difficult.
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+        <!--/ Regid Body motion -->
 
-  <section>
-    <center>
-      <div class="container-wrapper">
-        <div class="container2">
-          <div class="gif-container">
-            <img src="static/gifs/ps_move_demo.gif" alt="GIF 1">
-            <p class="caption">Teleoperation using PS Move</p>
-          </div>
-          <div class="gif-container">
-            <img src="static/gifs/force_test.gif" alt="GIF 2">
-            <p class="caption">Force/Torque Sensor test with admittance control</p>
-          </div>
-          <div class="gif-container">
-            <img src="static/gifs/insertion_task.gif" alt="GIF 3">
-            <p class="caption">Single-arm adapter insertion tasks</p>
+        <!-- Soft robot motion -->
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-5" style="padding: 0px; margin: 0.5em;">Force/Torque Sensing</h2>
+            <img src="static/gifs/force_test.gif" type="video/mp4">
+            <p style="text-align: justify;">
+              This example makes use of the robot's force/torque to demonstrate how the admittance controller reacts to the external environment. 
+              The target position of the left arm is given, such that, upon hitting the wall, the arm must gently bounce backward insteading of pushing against the wall with a larger force to reach the desired position.
+            </p>
           </div>
         </div>
+        <!--/ soft robot motion -->
       </div>
-    </center>
+      <!--/ Matting. -->
+
+
+      <!--/ method. -->
+      <div class="columns is-centered has-text-centered">
+        <!-- Regid Body motion -->
+        <div class="column">
+          <div class="content" style="padding-top: 0px;">
+            <h2 class="title is-5" style="padding: 0px; margin: 0.5em;">Single Arm Insertion Tasks</h2>
+            <img src="static/gifs/insertion_task.gif" type="video/mp4">
+            <p style="text-align: justify;">
+              The robot performs adapter insertion, with each component spawned at a randomly generated angle and position. The robot must precisely align and insert the components under a small tolerance and execute a sequence of actions defined by a YAML file. This file defines a generic algorithm that can be executed on either arm, as well as: how much force the gripper should apply at each stage of the task, the velocity constraints, and the objects involved in the action (containing information on the proper location and orientation for picking/inserting).              
+            </p>
+          </div>
+        </div>
+        <!--/ Regid Body motion -->
+
+        <!-- Soft robot motion -->
+        <div class="column">
+          <div class="content" style="padding-top: 0px;">
+            <h2 class="title is-5" style="padding: 0px; margin: 0.5em;">PID Gain Tuning</h2>
+            <img src="static/gifs/gain_test.gif" type="video/mp4">
+            <p style="text-align: justify;">
+              This example evaluates the PID gains to ensure that the torso (which is explicitly controlled in this scenario) and passive arm are stable under high torques from the moving arm. It can be seen that the right arm is vigorously moving back-and-forth in order to apply a high torque to the rest of the robot's body. The torso and left arm are stable under these forces, suggesting that the chosen gains are adequate for tasks requiring a high-speed arm movement.           
+            </p>
+          </div>
+        </div>
+        <!--/ soft robot motion -->
+      </div>
+      <!--/ Matting. -->
+
+
+        </div>
+    </div>
+    </div>
   </section>
 
 
